@@ -14,3 +14,6 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+  function closeit(){ 
+    document.getElementById('close').setAttribute("style", "display:none");
+} 

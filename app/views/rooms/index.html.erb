@@ -23,20 +23,19 @@
       <h2 class="listings_header">Direct Messages</h2>
       <ul class="channel_list">
         <li class="channel">
- 					<% User.all.each do |other_user| %> 
-						<% if other_user != current_user %> 
-							<%= link_to(room_path(current_user, :other_user => other_user.id), method: :get) do %>  
-             		<%= other_user.email %> 
-								<% end %> 
- 						<% end %> 
-					<% end %> 
+          <% User.all.each do |other_user| %>
+            <% if other_user != current_user %>
+              <%= link_to(room_path(current_user, :other_user => other_user.id), method: :get) do %>
+              <%= other_user.email %>
+              <% end %> 
+            <% end %>
+          <% end %>
           <a class="channel_name"><span class="unread">20</span><span><span class="prefix"> </span>dhh@basecamp.com</span></a>
         </li>
       </ul>
     </div>
   </div>
   <div class="message-history" id="messages">
-    <%= render @messages %>
   </div>
 </div>
 <div class="footer">

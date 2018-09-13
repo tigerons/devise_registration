@@ -5,19 +5,19 @@ class MessagesController < ApplicationController
 
 if message.save
       #broadcasting out to messages channel including the chat_id so messages are broadcasted to specific chat only
-      ActionCable.server.broadcast( "messages_#{message_params[:chat_id]}",
+      ActionCable.server.broadcast( "messages_#{message_params[:room_id]}",
       #message and user hold the data we render on the page using javascript 
       message: message.content,
-      user: message.user.username
+      user: message.user.email
       )
     else
-      redirect_to chats_path
+      redirect_to room_path
     end
   end
 
 private
     def message_params
-      params.require(:message).permit(:content, :chat_id)
+      params.require(:message).permit(:content, :room_id)
     end
 end
 

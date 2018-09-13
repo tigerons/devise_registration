@@ -11,6 +11,5 @@ function createMessageChannel() {
     return "<p> <b>" + data.user + ": </b>" + data.message + "</p>";
   },
       });
-
 return App.messages;
 }

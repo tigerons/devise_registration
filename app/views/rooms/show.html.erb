@@ -36,6 +36,14 @@
     </div>
   </div>
   <div class="message-history" id="messages">
+    <h5>Chat with <%= @other_user.email %></h5>
+		<% if @room %>
+			<div id="messages">
+			</div>
+		<% else %>
+			<div id="messages">
+			</div>
+		<% end %>
     <%= render @messages %>
   </div>
 </div>
@@ -49,3 +57,10 @@
     <input type="text" class="input-box_text" id="message_input"/>
   </div>
 </div>
+
+<script>
+  createMessageChannel();
+  // app/assets/javascripts/channels/messages.js
+  messageForm();
+  // app/assets/javascripts/messages_form.js
+</script>

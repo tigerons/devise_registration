@@ -17,7 +17,7 @@ class RoomsController < ApplicationController
 	def show
     @other_user = User.find(params[:other_user])
 		@room = Room.find_by(id: params[:id])
-		@messages = Message.all
+		@messages = Message.new
   end
 
 	private
